@@ -47,3 +47,7 @@
 .center {
   height: 100vh;
 }
+
+.gameStart {
+  display: none;
+}

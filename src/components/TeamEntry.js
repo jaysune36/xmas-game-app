@@ -1,32 +1,33 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-function TeamEntry({setTeamNum, setTeamNames, teamNum, teamNames}) {
+function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
 
+  const [test, setTest] = useState([]);
+  let teamsSet = false;
   let entryList = [];
 
-  if(teamNum > 0) {
+  if (teamNum > 0) {
     document.querySelector('.teamNum').style.display = 'none';
     for(let i=0;i<teamNum; i++) {
-      entryList.push(<Form.Control className={`team${i+1}`} key={i} type='text' placeholder={`Team ${i + 1}'s Name`} 
-      onChange={(e) =>  setTeamNames({...teamNames, team_name: e.target.value})}
-      ></Form.Control>)
+    entryList.push(
+        <Form.Control key={i} className={`team${i+1}`} type='text' placeholder={`Team ${i + 1}'s Name`}
+    ></Form.Control>
+    
+    )
     }
+
+
   }
 
-  const addPlayerNames = () => {
-    for(let i=0;i<teamNum;i++) {
-      let teamName = document.querySelector(`.team${i+1}`);
-      const newTeam = {team_name: teamName.value, team_points: 0}
-      console.log(teamName.value)
-      setTeamNames({...teamNames, team_name: teamName.v})
-      // console.log(`${teamName.value}`)
-      // setTeamNames({...teamName, team_name: teamName.value, team_points: 0})
-      // setTeamNames(prev => [...prev, teamName.value])
-      console.log(teamNames)
+  const addPlayerNames = (e) => {
+    for(let i=0;i<teamNum; i++) {
+      let teamName = e.target.parentElement.querySelector(`.team${i+1}`)
+      setTeams(teams => [ ...teams, { teamName: teamName.value, teamPoints: 0 }])
     }
+  
   }
 
   return (
@@ -34,31 +35,48 @@ function TeamEntry({setTeamNum, setTeamNames, teamNum, teamNames}) {
       <div className='container d-flex flex-column justify-content-center align-items-center center'>
         <Form className='teamNum'>
           <Form.Group>
-            <Form.Label><h2>How Many Players/Groups</h2></Form.Label>
+            <Form.Label>
+              <h2>How Many Players/Groups</h2>
+            </Form.Label>
             <Form.Control type='number' className='entryNum'></Form.Control>
-            <Button type='submit' onClick={(e)=> {
-            e.preventDefault();
-            setTeamNum(e.target.previousSibling.value)
-            console.log(e.target.previousSibling.value)
-          }}>Submit</Button>
+            <Button type='submit'
+              onClick={
+                (e) => {
+                  e.preventDefault();
+                  setTeamNum(e.target.previousSibling.value)
+                  console.log(e.target.previousSibling.value)
+                }
+            }>Submit</Button>
           </Form.Group>
-          
+
         </Form>
-        {teamNum > 0 && (
+        {
+        teamNum > 0 && (
           <Form className='teamNames'>
-          <Form.Group>
+             <Form.Group>
             <Form.Label><h2>Please Enter Player/Team Names</h2></Form.Label>
             {entryList}
-            {/* <Link><Button onClick={(e) => e.preventDefault()}>Submit</Button></Link> */}
-            <Button onClick={(e) => {
+               <Button onClick={(e) => {
               e.preventDefault()
-              addPlayerNames()
-              console.log(teamNames)
+              addPlayerNames(e)
+              console.log(teams);
+              teamsSet = true;
+              console.log(teamsSet)
+              document.querySelector('.teamNames').style.display = 'none';
+              document.querySelector('.gameStart').style.display = 'block';
+
             }}>Submit</Button>
-          </Form.Group>
-        </Form>
-        )}
-      </div>
+
+           </Form.Group> 
+            </Form>
+        )
+      }
+
+          <div className='gameStart'>
+            <Link to='/sboard'><Button>Let's Start</Button></Link>
+            </div>
+      
+       </div>
     </div>
   )
 }
