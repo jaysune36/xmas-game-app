@@ -73,7 +73,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
       }
 
           <div className='gameStart'>
-            <Link to='/sboard'><Button>Let's Start</Button></Link>
+            <Link to='/gameBoard'><Button>Let's Start</Button></Link>
             </div>
       
        </div>

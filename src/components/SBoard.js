@@ -4,7 +4,7 @@ function SBoard({teams}) {
   let teamsArr = []
 
   for(let i = 0; i < teams.length; i++) {
-    teams.push(<h2>{teams[i].teamName}</h2>)
+    teamsArr.push(<h2>{teams[i].teamName}</h2>)
     console.log(teams)
   }
 
