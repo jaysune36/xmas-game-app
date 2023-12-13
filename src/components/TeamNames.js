@@ -5,7 +5,7 @@ function TeamNames({setTeamNames, teamNames}) {
 
   return (
     <div>
-      <div className='container d-flex flex-column justify-content-center align-items-center center'>
+      <div className='container d-flex flex-column justify-content-center align-items-center gap-10 center'>
           <h2>Enter Player/Team Names</h2>
           <Form>
 

@@ -1,9 +1,15 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 
-function CardCreate() {
+function CardCreate({value}) {
   return (
-    <div>CardCreate</div>
+    <div>
+      <Card className='cardStyle fs-1'>
+        <Card.Body>
+          <Card.Title>{value}</Card.Title>
+        </Card.Body>
+      </Card>
+    </div>
   )
 }
 
