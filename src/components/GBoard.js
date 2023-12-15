@@ -1,7 +1,8 @@
 import React from 'react'
 import CardCreate from './CardCreate'
+import SBoard from './SBoard';
 
-function GBoard() {
+function GBoard({teams}) {
 
   let gameBoardTiles = [];
   let value = 100;
@@ -11,7 +12,7 @@ function GBoard() {
     gameBoardTiles.push(gameBoardTile)
     for(let j=0;j<6;j++) {
       gameBoardTile.push(
-      <CardCreate key={keyIndex} value={value}></CardCreate>
+      <CardCreate key={keyIndex} value={value} teams={teams}></CardCreate>
     )
     keyIndex++;
     }
@@ -20,6 +21,7 @@ function GBoard() {
 
   return (
     <div>
+      <SBoard teams={teams}></SBoard>
       <div className='game-board container d-flex flex-row flex-wrap justify-content-between align-items-center center'>
         {gameBoardTiles}
       </div>

@@ -53,17 +53,14 @@
 }
 
 .game-board {
-  width: 1500px;
+  width: 1000px;
 }
 
-.cardStyle {
+#qCard button {
   width: 150px;
   height: 100px;
-  text-align: center;
-  font-size: 50px;
-  padding-top: 15%;
 }
 
-.card:hover {
+#qCard:hover {
   cursor: pointer;
 }

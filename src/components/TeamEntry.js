@@ -59,9 +59,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
                <Button onClick={(e) => {
               e.preventDefault()
               addPlayerNames(e)
-              console.log(teams);
               teamsSet = true;
-              console.log(teamsSet)
               document.querySelector('.teamNames').style.display = 'none';
               document.querySelector('.gameStart').style.display = 'block';
 
