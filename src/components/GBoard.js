@@ -22,7 +22,7 @@ function GBoard({teams, setTeams}) {
   return (
     <div>
       <SBoard teams={teams}></SBoard>
-      <div className='game-board container d-flex flex-row flex-wrap justify-content-between align-items-center center'>
+      <div id='margin-top' className='game-board container d-flex flex-row flex-wrap justify-content-between align-items-center gap-2'>
         {gameBoardTiles}
       </div>
       

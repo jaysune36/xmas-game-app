@@ -15,4 +15,4 @@ function TeamNames({setTeamNames, teamNames}) {
   )
 }
 
-export default TeamNames
+export default TeamNames;

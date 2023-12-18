@@ -15,7 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <div id='bgGrad'>
+         <Router>
         <Routes>
           <Route path="/teamEntry" element={<TeamEntry setTeamNum={setTeamNum} setTeams={setTeams} teamNum={teamNum} teams={teams}/>}>
           </Route>
@@ -25,6 +26,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+        </div>
     </div>
   );
 }

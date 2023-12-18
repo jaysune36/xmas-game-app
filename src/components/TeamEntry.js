@@ -13,7 +13,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
     document.querySelector('.teamNum').style.display = 'none';
     for(let i=0;i<teamNum; i++) {
     entryList.push(
-        <Form.Control key={i} className={`team${i+1}`} type='text' placeholder={`Team ${i + 1}'s Name`}
+        <Form.Control key={i} className={`team${i+1} inputTxt mt-2`} type='text' placeholder={`Team ${i + 1}'s Name`}
     ></Form.Control>
     
     )
@@ -34,12 +34,12 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
     <div>
       <div className='container d-flex flex-column justify-content-center align-items-center center'>
         <Form className='teamNum'>
-          <Form.Group>
+          <Form.Group className='d-flex flex-column justify-content-center align-items-center'>
             <Form.Label>
-              <h2>How Many Players/Groups</h2>
+              <h2>How Many Players/Teams</h2>
             </Form.Label>
-            <Form.Control type='number' className='entryNum'></Form.Control>
-            <Button type='submit'
+            <Form.Control type='number' className='entryNum w-50 border-0 inputTxt'></Form.Control>
+            <Button className='btnGold mt-3' type='submit'
               onClick={
                 (e) => {
                   e.preventDefault();
@@ -56,7 +56,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
              <Form.Group>
             <Form.Label><h2>Please Enter Player/Team Names</h2></Form.Label>
             {entryList}
-               <Button onClick={(e) => {
+               <Button className='btnGold mt-3' onClick={(e) => {
               e.preventDefault()
               addPlayerNames(e)
               teamsSet = true;
@@ -71,7 +71,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
       }
 
           <div className='gameStart'>
-            <Link to='/gameBoard'><Button>Let's Start</Button></Link>
+            <Link to='/gameBoard'><Button className='btnGold'>Let's Start</Button></Link>
             </div>
       
        </div>

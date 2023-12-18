@@ -30,7 +30,7 @@ function CardCreate({value, question, teams, setTeams}) {
     <div>
       <div id='qCard'>
         <div></div>
-          <Button className='fs-2' variant="primary" onClick={(e)=>{
+          <Button className='fs-2 btnGold m-1' onClick={(e)=>{
           handleShow();
           setPoints(parseFloat(e.target.innerText));
           e.target.previousSibling.setAttribute('id', 'overlay')
