@@ -20,7 +20,7 @@ function App() {
           <Route path="/teamEntry" element={<TeamEntry setTeamNum={setTeamNum} setTeams={setTeams} teamNum={teamNum} teams={teams}/>}>
           </Route>
           <Route path='/sboard' element={<SBoard teams={teams}/>}></Route>
-          <Route path="/gameBoard" element={<GBoard teams={teams}/>}></Route>
+          <Route path="/gameBoard" element={<GBoard teams={teams} setTeams={setTeams}/>}></Route>
           <Route path='/' element={<StartMenu />}>
           </Route>
         </Routes>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function CardCreate({value, question, teams}) {
+function CardCreate({value, question, teams, setTeams}) {
 
   const [show, setShow] = useState(false);
   const [points, setPoints] = useState(0)
@@ -10,8 +10,11 @@ function CardCreate({value, question, teams}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const winningPointAdd = (arr) => {
-    return [...teams, {...arr, teamPoints: arr.teamPoints += points}]
+  const winningPointAdd = (item) => {
+    setTeams(teams => [...(
+      {...item, teamPoints: item.teamPoints += points},
+      teams.filter((x) => teams.indexOf(x) !== item)
+    )])
   }
 
   const teamDisplay = [];
@@ -26,12 +29,15 @@ function CardCreate({value, question, teams}) {
   return (
     <div>
       <div id='qCard'>
-         <Button className='fs-2' variant="primary" onClick={(e)=>{
+        <div></div>
+          <Button className='fs-2' variant="primary" onClick={(e)=>{
           handleShow();
           setPoints(parseFloat(e.target.innerText));
+          e.target.previousSibling.setAttribute('id', 'overlay')
          }}>
         {value}
       </Button>
+         
       </div>
        
 

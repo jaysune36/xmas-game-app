@@ -25,7 +25,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
   const addPlayerNames = (e) => {
     for(let i=0;i<teamNum; i++) {
       let teamName = e.target.parentElement.querySelector(`.team${i+1}`)
-      setTeams(teams => [ ...teams, { teamName: teamName.value, teamPoints: 0 }])
+      setTeams(teams => [ ...teams, { teamName: teamName.value, teamPoints: 0 , index: i}])
     }
   
   }
@@ -44,7 +44,7 @@ function TeamEntry({setTeamNum, setTeams, teamNum, teams}) {
                 (e) => {
                   e.preventDefault();
                   setTeamNum(e.target.previousSibling.value)
-                  console.log(e.target.previousSibling.value)
+                  // console.log(e.target.previousSibling.value)
                 }
             }>Submit</Button>
           </Form.Group>

@@ -2,7 +2,7 @@ import React from 'react'
 import CardCreate from './CardCreate'
 import SBoard from './SBoard';
 
-function GBoard({teams}) {
+function GBoard({teams, setTeams}) {
 
   let gameBoardTiles = [];
   let value = 100;
@@ -12,7 +12,7 @@ function GBoard({teams}) {
     gameBoardTiles.push(gameBoardTile)
     for(let j=0;j<6;j++) {
       gameBoardTile.push(
-      <CardCreate key={keyIndex} value={value} teams={teams}></CardCreate>
+      <CardCreate key={keyIndex} value={value} teams={teams} setTeams={setTeams}></CardCreate>
     )
     keyIndex++;
     }
