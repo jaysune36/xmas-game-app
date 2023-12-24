@@ -69,6 +69,23 @@ font-family: 'Great Vibes', cursive;
   text-align: center;
 }
 
+.smallTxt {
+  font-size: 1rem;
+  text-shadow: none;
+}
+
+.noShdw {
+  text-shadow: none;
+}
+
+.bigTxt {
+  font-size: 2.5rem;
+}
+
+.sizeBox {
+  width: 150px;
+}
+
 .btnGold {
   background-color: #ccac00;
   font-size: 2rem;
@@ -87,12 +104,30 @@ font-family: 'Great Vibes', cursive;
   height: 100vh;
 }
 
+.centerBtn {
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
 .gameStart {
   display: none;
 }
 
 .game-board {
-  width: 1000px;
+  width: 1500px;
+  padding: 0;
+}
+
+.gameHeader{
+  width: 1500px;
+}
+
+.sText {
+  text-shadow: none;
+}
+
+#answerR {
+  display: none;
 }
 
 #qCard {
@@ -100,12 +135,12 @@ font-family: 'Great Vibes', cursive;
 }
 
 #qCard button {
-  width: 125px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
 }
 
 #margin-top {
-  margin-top: 10rem;
+  margin-top: 2rem;
 }
 
 #qCard:hover {
@@ -115,8 +150,8 @@ font-family: 'Great Vibes', cursive;
 #overlay {
   position: absolute; 
   display: block; 
-  width: 125px; 
-  height: 100px; 
+  width: 200px; 
+  height: 150px; 
   border-radius: 5px;
   top: 4px;
   left: 4px;
